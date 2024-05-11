@@ -1,0 +1,21 @@
+
+{% extends 'investimentos/base.html' %}
+{% load crispy_forms_tags %}
+{% block conteudo %}
+
+<div class="container">
+    <h1 style="text-align: left;">Fazer Novo Cadastro</h1>
+
+    <form style="text-align: left; padding-left: 30px; padding-right:  30px;" method="POST">
+        {% csrf_token %}
+        {{formulario | crispy }}
+        <button class="btn btn-primary" type="submit">Criar Conta</button>
+        <a href="{% url 'login' %}">Já possui uma conta Entre Aqui!</a>
+
+    </form>
+
+
+</div>
+
+{% endblock %}
+
