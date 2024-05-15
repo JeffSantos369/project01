@@ -1,13 +1,15 @@
 {% extends 'investimentos/base.html' %}
 {% block conteudo %}
-<h1 style ='text-align: center'>Listagem de Investimentos</h1>
+
+
 <div class="container">
+    <h1 style ="text-align: left;"> Itens/Produtos</h1>
 
     <table class="'table table-striped table-bordered">
         <button class="btn btn-success" style="margin-bottom: 10px;"><a style="color: white;" href="{% url 'novo_investimento' %}">NOVO INVESTIMENTO</a></button>
         <tr >
                 <th>id</th>
-                <th>Investimento</th>
+                <th>Produto</th>
                 <th>Valor</th>
                 <th></th> 
                 <th></th> 

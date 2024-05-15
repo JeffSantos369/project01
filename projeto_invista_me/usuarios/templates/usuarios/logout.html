@@ -3,15 +3,24 @@
 {% load crispy_forms_tags %}
 {% block conteudo %}
 
-<div class="container" style="padding: 30px">
+<div class="container" style="text-align: left;">
 
-    <h1>Você saiu do sistema</h1>
+    <h3>Obrigado pela sua atualização:</h3>
+
+<p>
+ 
+</p>
+
+
+
+
+    <h6 style= "text-decoration-color: blueviolet;">Você saiu do sistema!</h6>
 
     <form 
-    style="text-align: left; padding-left: 30px; padding-right:  30px;" 
+    style="text-align: left; " 
     method="POST">
         {% csrf_token %}
-        <a href="{% url 'login' %}">Fazer Login Novamente?</a>
+        <a href="{% url 'login' %}">Deseja Entrar Novamente?</a>
     </form>
 
 

@@ -5,17 +5,13 @@ from django.contrib.auth.decorators  import login_required
 
 
 def investimentos(request):
-    dados = {
-        'dados' : Investimentos.objects.all()
-    }
+    dados = { 'dados' : Investimentos.objects.all()  }
     return render(request,'investimentos/investimentos.html', context=dados)
 
 
 
 def detalhe(request, id_investimento):
-    dados ={
-        'dados': Investimentos.objects.get(pk=id_investimento)
-    }
+    dados ={ 'dados': Investimentos.objects.get(pk=id_investimento)  }
     return render(request, 'investimentos/detalhe.html', dados)
 
 
@@ -28,9 +24,7 @@ def criar(request):
         return redirect('investimentos')
     else:            
         investimento_form =  InvestimentosForm()
-        formulario = {
-            'formulario' : investimento_form
-        }
+        formulario = { 'formulario' : investimento_form   }
         return render(request,'investimentos/novo_investimento.html', context=formulario)
    
 @login_required    

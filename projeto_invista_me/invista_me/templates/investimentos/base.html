@@ -1,6 +1,10 @@
+<!-- PAGINA BASE HTML  -->
+
 
 <!doctype html>
 <html lang="en">
+
+<!-- #======================================= -->
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -9,45 +13,46 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 
-    <title>Invista - me!</title>
+    <title>CATÁLOGO DE PREÇOS!</title>
   </head>
+<!-- #====================================== -->
+<!-- ======================================= -->
+
   <body>
     <!-- As a link -->
     <nav class="navbar navbar-light bg-light">
-
-          <a class="navbar-brand" href="{% url 'investimentos' %}">Invista-me</a>
+          <a class="navbar-brand" href="{% url 'investimentos' %}">Catálogo de Preços</a>
+          
           <ul style="list-style: none;">
-            {% if user.is_authenticated%}
-
-                <li style="float: left">
-                  <strong class="nav-item nav-link">Bem-Vindo {{user.get_username}}</strong> 
-                </li> 
-                
-                <li style="float: left">
-                  <form method="POST" action="{% url 'logout' %}">
-                      {% csrf_token %}
-                  <button class="btn btn-secondary" type="submit">Sair</button>
-                  </form>
-              </li>
-
-                {% else %} 
-
-                <li style="float: left">
-                  <a class="nav-item nav-link" href="{% url 'login' %}">Login</a> 
-                </li>  
-                  <li style="float: left">
-                    <a class="nav-item nav-link" href="{% url 'novo_usuario' %}">Fazer Cadastro</a>
-                  </li>
-
-              {% endif%}
-
+                      {% if user.is_authenticated%}
+                          <li style="float: left">
+                            <strong class="nav-item nav-link">Bem-Vindos! {{user.get_username}}</strong> 
+                          </li> 
+                          
+                          <li style="float: left">
+                            <form method="POST" action="{% url 'logout' %}">
+                                {% csrf_token %}
+                            <button class="btn btn-secondary" type="submit">Sair</button>
+                            </form>
+                        </li>
+                          {% else %} 
+                          <li style="float: left">
+                            <a class="nav-item nav-link" href="{% url 'login' %}">Login</a> 
+                          </li>  
+                            <li style="float: left">
+                              <a class="nav-item nav-link" href="{% url 'novo_usuario' %}">Faça seu Cadastro!</a>
+                            </li>
+                        {% endif%}
           </ul>
       </nav>
+
+
     {% if messages%}
-      {% for message in messages %}
-      <div class="alert alert-{{ message.tags }}">{{ message }}</div>
-      {% endfor %}
+          {% for message in messages %}
+          <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+          {% endfor %}
       {% endif %}
+
     {% block conteudo %}
     {% endblock%}
     <!-- Optional JavaScript; choose one of the two! -->
